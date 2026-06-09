@@ -58,7 +58,7 @@ static int init_mutex(t_sim *sim)
 int	init_sim(t_sim *sim, t_args args)
 {
 	sim->args = args;
-	sim->start_time = get_time_in_ms();
+	sim->start_time = 0;
     sim->stop = 0;
 	if (init_memory(sim))
 		return (1);

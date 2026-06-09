@@ -7,10 +7,12 @@ int create_threads(t_sim *sim)
     i = 0;
     while(i < num)
     {
-        pthead_creat(&sim->coders[i].thread, NULL, &routine, &sim->coders[i]);
+        pthread_create(&sim->coders[i].thread, NULL, &routine, &sim->coders[i]);
+        i++;
     }
-
+    return (0);
 }
+
 int join_thread(t_sim *sim)
 {
     int num , i;
@@ -21,4 +23,5 @@ int join_thread(t_sim *sim)
     {
         pthread_join(sim->coders[i].thread, NULL);
     }
+    return (0);
 }

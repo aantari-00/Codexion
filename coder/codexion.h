@@ -64,7 +64,7 @@ int		validate_values(t_args *args);
 /*routine.c */
 void 	*routine(void *arg);
 /* threads.c */
-int 	creat_threads(t_sim *sim);
+int 	create_threads(t_sim *sim);
 int		join_threads(t_sim *sim);
 /* init.c */
 int		init_sim(t_sim *sim, t_args args);

@@ -1,19 +1,21 @@
 #include "codexion.h"
 
-int main(int argc, char **argv)
-{
-    t_sim sim;
-    t_args args;
 
-    if(pars_arg(argc, argv, &args) != 0)
+int main(int ac, char **av)
+{
+    t_args args;
+    t_sim sim;
+
+    if (parse_args(ac, av, &args))
         return (1);
-    if(validate_values(&args) != 0)
+    if (validate_values(&args))
         return (1);
-    if(init_sim(&sim, &args) != 0)
+    if (init_sim(&sim, args))
         return (1);
-    if(create_threads(&sim) != 0)
+    if (create_threads(&sim))
         return (1);
-    if(join_threads(&sim) != 0)
+    if (join_threads(&sim))
         return (1);
-    
+    return (0);
+
 }
