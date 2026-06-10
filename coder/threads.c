@@ -13,7 +13,7 @@ int create_threads(t_sim *sim)
     return (0);
 }
 
-int join_thread(t_sim *sim)
+int join_threads(t_sim *sim)
 {
     int num , i;
 

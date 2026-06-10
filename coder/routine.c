@@ -8,6 +8,7 @@ void    *routine(void *arg)
     while (1)
     {
         printf("Coder %d is thinking\n", coder->coder_id);
+        sleep(1);
     }
     return (NULL);
 }
