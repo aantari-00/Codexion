@@ -6,7 +6,6 @@ static int	coder_burned_out(t_coder *coder, long now)
 		&& now - coder->last_compile_start >= coder->sim->args.time_to_burnout);
 }
 
-/* returns 1 if the simulation must stop: a burnout, or everyone finished */
 static int	check_coders(t_sim *sim)
 {
 	int		i;

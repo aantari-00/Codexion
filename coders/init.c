@@ -44,6 +44,16 @@ static int	init_sync(t_sim *sim)
 	return (0);
 }
 
+static int	heap_init(t_heap *heap, int capacity)
+{
+	heap->items = malloc(sizeof(t_request) * capacity);
+	if (!heap->items)
+		return (1);
+	heap->size = 0;
+	heap->capacity = capacity;
+	return (0);
+}
+
 int	init_sim(t_sim *sim, t_args args)
 {
 	sim->args = args;

@@ -1,11 +1,5 @@
 #include "codexion.h"
 
-/*
-** A coder can take its dongles only if both are currently free and
-** their cooldown has elapsed. With a single coder, left and right
-** point to the same (only) dongle, so two distinct dongles can never
-** be gathered: that coder is never able to compile, as expected.
-*/
 int	can_take_dongles(t_coder *coder, long now)
 {
 	t_dongle	*left;

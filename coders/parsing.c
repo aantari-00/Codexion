@@ -46,7 +46,7 @@ int	parse_args(int ac, char **av, t_args *args)
 	while (i <= 7)
 	{
 		if (!is_number(av[i]))
-			return (printf("Error: argument %d must be a positive integer\n", i), 1);
+			return (printf("Error: argument must be a positive integer\n"), 1);
 		i++;
 	}
 	args->number_of_coders = atoi(av[1]);
