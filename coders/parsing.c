@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
+/*   By: safe <safe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/24 20:45:09 by aantari           #+#    #+#             */
-/*   Updated: 2026/08/24 20:45:10 by aantari          ###   ########.fr       */
+/*   Updated: 2026/09/05 02:40:25 by safe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,31 @@ static int	is_number(const char *str)
 		i++;
 	}
 	return (1);
+}
+
+static long	ft_atol(char *str)
+{
+	int		i;
+	long	num;
+	int		signe;
+
+	i = 0;
+	num = 0;
+	signe = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			signe = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		num = num * 10 + (str[i] - 48);
+		i++;
+	}
+	return (num * signe);
 }
 
 static int	parse_scheduler(const char *str, t_args *args)
@@ -61,13 +86,13 @@ int	parse_args(int ac, char **av, t_args *args)
 			return (printf("Error: argument must be a positive integer\n"), 1);
 		i++;
 	}
-	args->number_of_coders = atoi(av[1]);
-	args->time_to_burnout = atoi(av[2]);
-	args->time_to_compile = atoi(av[3]);
-	args->time_to_debug = atoi(av[4]);
-	args->time_to_refactor = atoi(av[5]);
-	args->number_of_compiles_required = atoi(av[6]);
-	args->dongle_cooldown = atoi(av[7]);
+	args->number_of_coders = ft_atol(av[1]);
+	args->time_to_burnout = ft_atol(av[2]);
+	args->time_to_compile = ft_atol(av[3]);
+	args->time_to_debug = ft_atol(av[4]);
+	args->time_to_refactor = ft_atol(av[5]);
+	args->number_of_compiles_required = ft_atol(av[6]);
+	args->dongle_cooldown = ft_atol(av[7]);
 	return (parse_scheduler(av[8], args));
 }
 
